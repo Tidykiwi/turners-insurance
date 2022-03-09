@@ -1,7 +1,23 @@
 <template>
-  <div class="about">
-    <img src="../assets/img/turners-banner.jpg" alt="Turners banner">
-    <h1>This is the quote page</h1>
-    <img src="../assets/img/turners-logo.jpg" alt="Turners logo">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col"></div>
+      <div class="col-8">
+        <QuoteForm />
+      </div>
+      <div class="col"></div>
+    </div>
   </div>
 </template>
+
+<script>
+// @ is an alias to /src
+import QuoteForm from '@/components/QuoteForm.vue'
+
+export default {
+  name: 'QuoteView',
+  components: {
+    QuoteForm
+  }
+}
+</script>
