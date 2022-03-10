@@ -7,22 +7,22 @@ import PaymentView from '../views/PaymentView.vue'
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'HomeView',
     component: HomeView
   },
   {
     path: '/quote',
-    name: 'quote',
+    name: 'QuoteView',
     component: QuoteView
   },
   {
     path: '/account',
-    name: 'account',
+    name: 'AccountView',
     component: AccountView
   },
   {
     path: '/payment',
-    name: 'payment',
+    name: 'PaymentView',
     component: PaymentView
   }
 ]

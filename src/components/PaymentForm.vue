@@ -8,10 +8,11 @@
           <h3 class="card-title" style="text-align: left;"><strong>Make payment</strong></h3>
         </div>
         <hr>
-        <h4>The policy is {{ }}</h4>
-        <h4>The payment amount is {{  }}</h4>
-        <h4>The payment option is {{ }}</h4>
-        <h4></h4>
+        <div v-if="showPay">
+          <h4>The policy is {{ }}</h4>
+          <h4>The payment amount is {{  }}</h4>
+          <h4>The payment option is {{ }}</h4>
+        </div>
         <img class="img-fluid" src="../assets/img/turners-payment.jpg" alt="Turners payment">
 <!-- Button trigger modal -->
 <!-- <button type="submit" class="btn btn-danger btn-lg col-3 mx-auto shadow1" style="background-color: #BA1D3D;"><strong>NEXT</strong></button> -->
@@ -55,6 +56,11 @@ export default {
   name: 'PaymentForm',
   props: {
     msg: String
+  },
+  data () {
+    return {
+      showPay: false
+    }
   }
 }
 </script>

@@ -27,11 +27,11 @@
           <div class="row align-items-end">
             <img class="img-fluid" src="../assets/img/search.jpg" alt="Turners payment">
           </div>
-          <SearchCar />
+          <!-- <SearchCar /> -->
           <!-- Reveal search results -->
           <p>
-          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-            Search results
+          <button class="btn btn-lg btn-primary button1" style="border-radius: 12px;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          <strong>Search Car</strong>
           </button>
           </p>
           <div class="collapse" id="collapseExample">
@@ -52,7 +52,10 @@
                     <div class="col">
                       <div v-if="showComp">
                         <PaymentOptions @toggle-pay="togglePay"
-                          @pay-select="paySelect" :paymentOptions="paymentOptions"
+                          @pay-select-weekly="paySelectWeekly"
+                          @pay-select-monthly="paySelectMonthly"
+                          @pay-select-yearly="paySelectYearly"
+                          :paymentOptions="paymentOptions"
                         />
                       </div>
                       <div class="d"><br></div>
@@ -105,19 +108,20 @@
 import CompButton from './CompButton'
 import MechButton from './MechButton'
 import PaymentOptions from './PaymentOptions'
-import SearchCar from './SearchCar'
+// import SearchCar from './SearchCar'
 export default {
   name: 'QuoteForm',
   components: {
     CompButton,
     MechButton,
-    PaymentOptions,
-    SearchCar
+    PaymentOptions
+    // SearchCar
   },
   data () {
     return {
       paymentOptions: [],
-      showComp: false
+      showComp: false,
+      showMech: false
     }
   },
   methods: {
@@ -127,12 +131,20 @@ export default {
     toggleMech () {
       this.showComp = !this.showComp
     },
-    paySelect (id) {
+    togglePay (id) {
+      console.log(id)
+    },
+    paySelectWeekly (id) {
       // this.paymentOptions = this.paymentOptions.filter((paymentOption) => paymentOption.id === id)
       this.paymentOptions = this.paymentOptions.map((paymentOption) => paymentOption.id === id ? { ...paymentOption, weeklySelected: !paymentOption.weeklySelected } : paymentOption)
     },
-    togglePay (id) {
-      console.log(id)
+    paySelectMonthly (id) {
+      // this.paymentOptions = this.paymentOptions.filter((paymentOption) => paymentOption.id === id)
+      this.paymentOptions = this.paymentOptions.map((paymentOption) => paymentOption.id === id ? { ...paymentOption, monthlySelected: !paymentOption.monthlySelected } : paymentOption)
+    },
+    paySelectYearly (id) {
+      // this.paymentOptions = this.paymentOptions.filter((paymentOption) => paymentOption.id === id)
+      this.paymentOptions = this.paymentOptions.map((paymentOption) => paymentOption.id === id ? { ...paymentOption, yearlySelected: !paymentOption.yearlySelected } : paymentOption)
     },
     hideButton () {
       const x = document.getElementById('hideButton')
@@ -151,7 +163,6 @@ export default {
         weekly: '$4.99',
         monthly: '$40.99',
         yearly: '$400.99',
-        policySelected: false,
         weeklySelected: false,
         monthlySelected: false,
         yearlySelected: false
@@ -162,7 +173,6 @@ export default {
         weekly: '$2.99',
         monthly: '$20.99',
         yearly: '$200.99',
-        policySelected: false,
         weeklySelected: false,
         monthlySelected: false,
         yearlySelected: false
