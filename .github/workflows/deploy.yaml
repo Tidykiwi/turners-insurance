@@ -10,11 +10,11 @@ on: [push]
 env:
   AWS_REGION: us-east-1                   # set this to your preferred AWS region, e.g. us-west-1
   ECR_REPOSITORY: turners-insurance           # set this to your Amazon ECR repository name
-  ECS_SERVICE: turnersService                 # set this to your Amazon ECS service name
-  ECS_CLUSTER: turnersCluster                 # set this to your Amazon ECS cluster name
+  ECS_SERVICE: insuranceService                 # set this to your Amazon ECS service name
+  ECS_CLUSTER: insuranceCluster                 # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: ./task-definition.json # set this to the path to your Amazon ECS task definition
                                                # file, e.g. .aws/task-definition.json
-  CONTAINER_NAME: turnersContainer           # set this to the name of the container in the
+  CONTAINER_NAME: insuranceContainer           # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
 jobs:
 
