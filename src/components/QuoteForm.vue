@@ -21,17 +21,19 @@
             </div>
             <div class="d"><br></div>
           </div>
-          <!-- Plate Search -->
-          <div class="row align-items-end">
-            <img class="img-fluid" src="../assets/img/search.jpg" alt="Turners payment">
-          </div>
           <!-- <SearchCar /> -->
+          <div>
+            <h4 style="text-align: left;"><strong>Enter your plate number</strong></h4>
+            <br>
+            <input type="text" placeholder="Enter your number plate..." class="w3-block-lg" id="input" ><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg>
+            <div class="d"><br></div>
           <!-- Reveal search results -->
-          <p>
           <button v-on:click="hideButton1()" id="hideButton1" class="btn btn-lg btn-primary button1" style="border-radius: 12px;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
           <strong>Search Car</strong>
           </button>
-          </p>
+          </div>
           <div class="collapse" id="collapseExample">
             <div class="card card-body" style="border: 0; padding: 0;">
               <!-- Reveal Quote -->
@@ -47,33 +49,6 @@
                   <div class="row align-items-center">
                     <div class="col-md-2"></div>
                     <div class="col">
-                      <!-- Payment Option -->
-                      <div class="container">
-                        <div class="row gx-1">
-                          <div class="col-lg-4">
-                            <div @click="selectWeekly()" class="card payment">
-                              <div id="week" class="card-body">
-                                <h4>{{ this.weekly }}<br>Weekly Payment</h4>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-4">
-                            <div @click="selectMonthly()" class="card payment">
-                              <div id="month" class="card-body">
-                                <h4>{{ this.monthly }}<br>Monthly Payment</h4>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-4">
-                            <div @click="selectYearly()" class="card payment">
-                              <div id="year" class="card-body">
-                                <h4>{{ this.yearly }}<br>Yearly Payment</h4>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- FINISH Payment Option -->
                       <!-- Radio Payment Option -->
                       <div class="container">
                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
@@ -199,6 +174,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+#input {
+  padding: 25px;
+}
 
 .container {
   padding: 12px;
