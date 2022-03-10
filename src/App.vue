@@ -14,7 +14,7 @@
     <router-view/>
     <section>
       <br>
-      <div id="footer" class="container-fluid">
+      <div @click="seeData()" id="footer" class="container-fluid">
         <br>
         <div class="row">
           <div class="col"></div>

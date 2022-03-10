@@ -145,6 +145,7 @@ export default {
   },
   data () {
     return {
+      inventory: [],
       showWeek: false,
       showMonth: false,
       showYear: false,

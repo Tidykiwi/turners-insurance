@@ -10,7 +10,7 @@
           <br>
           <img src="../assets/img/package-01.jpg" class="card-img-top" alt="...">
           <!-- Accordian -->
-          <div class="accordion accordion-flush" id="accordionFlushExample">
+          <div class="accordion accordion-flush" id="accordionFlushExample1">
             <div class="accordion-item" style="border-radius: 12px;">
               <h2 class="accordion-header" id="flush-headingOne">
               <button class="accordion-button collapsed" style="border-radius: 12px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -32,7 +32,7 @@
           <br>
           <img src="../assets/img/package-02.jpg" class="card-img-top" alt="...">
           <!-- Accordian -->
-          <div class="accordion accordion-flush" id="accordionFlushExample">
+          <div class="accordion accordion-flush" id="accordionFlushExample2">
             <div class="accordion-item" style="border-radius: 12px;">
               <h2 class="accordion-header" id="flush-headingTwo">
               <button class="accordion-button collapsed" style="border-radius: 12px;" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
