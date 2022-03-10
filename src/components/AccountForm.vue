@@ -47,7 +47,6 @@
             <input type="text" class="form-control" id="inputPassword4">
           </div>
           <a href="/payment" class="btn btn-danger btn-lg col-4 mx-auto shadow1" role="button" style="background-color: #BA1D3D; border-radius: 12px;"><h2><strong>Next</strong></h2></a>
-          <router-link to="/payment">Payment</router-link>
           <!-- <button type="submit" class="btn btn-danger btn-lg col-3 mx-auto shadow1" style="background-color: #BA1D3D;"><strong>NEXT</strong></button> -->
         </form>
       </div>

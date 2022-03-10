@@ -52,7 +52,6 @@
     </div>
     <div class="d"><br></div>
     <a href="/quote" class="btn btn-danger btn-lg col-3 mx-auto shadow1" role="button" style="background-color: #BA1D3D; border-radius: 12px;"><h2><strong>Get Quote</strong></h2></a>
-    <router-link to="/quote">Quote</router-link>
   </div>
 </template>
 

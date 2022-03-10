@@ -15,11 +15,9 @@
             <div class="d"><br></div>
             <div class="col-md-6">
               <CompButton @toggle-comp="toggleComp" />
-              <!-- <button v-on:click="setComp()" type="button" class="btn btn-lg btn-outline-primary button button1" style="border-radius: 12px;"><strong>Comprehensive Car<br>Insurance Simple</strong></button> -->
             </div>
             <div class="col-md-6">
               <MechButton @toggle-mech="toggleMech"/>
-              <!-- <button v-on:click="setMech()" type="button" class="btn btn-lg btn-outline-primary button button1" style="border-radius: 12px;"><strong>Mechanical Breakdown<br>Insurance Simple</strong></button> -->
             </div>
             <div class="d"><br></div>
           </div>
@@ -30,7 +28,7 @@
           <!-- <SearchCar /> -->
           <!-- Reveal search results -->
           <p>
-          <button class="btn btn-lg btn-primary button1" style="border-radius: 12px;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          <button v-on:click="hideButton1()" id="hideButton1" class="btn btn-lg btn-primary button1" style="border-radius: 12px;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
           <strong>Search Car</strong>
           </button>
           </p>
@@ -39,7 +37,7 @@
               <!-- Reveal Quote -->
               <img class="img-fluid" src="../assets/img/car-model.jpg" alt="Turners payment">
               <p>
-                <button v-on:click="hideButton()" id="hideButton" class="btn btn-danger btn-lg col-4 mx-auto shadow1"  type="button" style="background-color: #BA1D3D; border-radius: 12px;" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+                <button v-on:click="hideButton2()" id="hideButton2" class="btn btn-danger btn-lg col-4 mx-auto shadow1"  type="button" style="background-color: #BA1D3D; border-radius: 12px;" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
                   <h2><strong>Get Quote</strong></h2>
                 </button>
               </p>
@@ -47,25 +45,53 @@
                 <div class="card card-body" style="border: 0; padding: 0;">
                   <!-- Get Quote -->
                   <div class="row align-items-center">
-                    <div class="d"><br></div>
                     <div class="col-md-2"></div>
                     <div class="col">
-                      <div v-if="showComp">
-                        <PaymentOptions @toggle-pay="togglePay"
-                          @pay-select-weekly="paySelectWeekly"
-                          @pay-select-monthly="paySelectMonthly"
-                          @pay-select-yearly="paySelectYearly"
-                          :paymentOptions="paymentOptions"
-                        />
+                      <!-- Payment Option -->
+                      <div class="container">
+                        <div class="row gx-1">
+                          <div class="col-lg-4">
+                            <div @click="selectWeekly()" class="card payment">
+                              <div id="week" class="card-body">
+                                <h4>{{ this.weekly }}<br>Weekly Payment</h4>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div @click="selectMonthly()" class="card payment">
+                              <div id="month" class="card-body">
+                                <h4>{{ this.monthly }}<br>Monthly Payment</h4>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div @click="selectYearly()" class="card payment">
+                              <div id="year" class="card-body">
+                                <h4>{{ this.yearly }}<br>Yearly Payment</h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div class="d"><br></div>
+                      <!-- FINISH Payment Option -->
+                      <!-- Radio Payment Option -->
+                      <div class="container">
+                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                          <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                          <label class="btn btn-lg btn-outline-primary" style="border-color: #0076BE;" for="btnradio1"><br><h2><strong>{{ this.weekly }}</strong></h2><div class="d"><br></div>Weekly Payment</label>
+
+                          <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                          <label class="btn btn-lg btn-outline-primary" style="border-color: #0076BE;" for="btnradio2"><br><h2><strong>{{ this.monthly }}</strong></h2><div class="d"><br></div>Monthly Payment</label>
+
+                          <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                          <label class="btn btn-lg btn-outline-primary" style="border-color: #0076BE;" for="btnradio3"><br><h2><strong>{{ this.yearly }}</strong></h2><div class="d"><br></div>Yearly Payment</label>
+                        </div>
+                      </div>
+                      <!-- FINISH Radio Payment Option -->
                     </div>
                    <div class="col-md-2"></div>
                   <div class="d"><br></div>
                   </div>
-                  <!-- <h4>Simple Weekly payment: {{ weekly }}</h4>
-                  <h4>Simple Monthly payment: {{ monthly }}</h4>
-                  <h4>Simple Yearly payment: {{ yearly }}</h4> -->
                   <!-- <button type="submit" class="btn btn-danger btn-lg col-3 mx-auto shadow1" style="background-color: #BA1D3D;"><strong>NEXT</strong></button> -->
                   <div class="d"><br></div>
                   <!-- Button trigger modal -->
@@ -73,6 +99,8 @@
                   <button type="button" class="btn btn-primary btn-lg col-4 mx-auto shadow1" style="background-color: #BA1D3D; border-radius: 12px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     <h2><strong>Buy Cover</strong></h2>
                   </button>
+                  <div class="d"><br></div>
+                  <h5 style="text-align: center;"><a href="#" class="link" style="color: black;">Busy now? Email this quote to you for later</a></h5>
                   <!-- Modal -->
                   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
@@ -107,77 +135,63 @@
 <script>
 import CompButton from './CompButton'
 import MechButton from './MechButton'
-import PaymentOptions from './PaymentOptions'
 // import SearchCar from './SearchCar'
 export default {
   name: 'QuoteForm',
   components: {
     CompButton,
-    MechButton,
-    PaymentOptions
+    MechButton
     // SearchCar
   },
   data () {
     return {
-      paymentOptions: [],
-      showComp: false,
-      showMech: false
+      showWeek: false,
+      showMonth: false,
+      showYear: false,
+      weekly: '',
+      monthly: '',
+      yearly: ''
     }
   },
   methods: {
     toggleComp () {
-      this.showComp = !this.showComp
+      this.weekly = '$4.99'
+      this.monthly = '$40.99'
+      this.yearly = '$400.99'
     },
     toggleMech () {
-      this.showComp = !this.showComp
+      this.weekly = '$2.99'
+      this.monthly = '$20.99'
+      this.yearly = '$200.99'
     },
-    togglePay (id) {
-      console.log(id)
+    selectWeekly () {
+      const element = document.getElementById('week')
+      element.classList.toggle('selected')
     },
-    paySelectWeekly (id) {
-      // this.paymentOptions = this.paymentOptions.filter((paymentOption) => paymentOption.id === id)
-      this.paymentOptions = this.paymentOptions.map((paymentOption) => paymentOption.id === id ? { ...paymentOption, weeklySelected: !paymentOption.weeklySelected } : paymentOption)
+    selectMonthly () {
+      const element = document.getElementById('month')
+      element.classList.toggle('selected')
     },
-    paySelectMonthly (id) {
-      // this.paymentOptions = this.paymentOptions.filter((paymentOption) => paymentOption.id === id)
-      this.paymentOptions = this.paymentOptions.map((paymentOption) => paymentOption.id === id ? { ...paymentOption, monthlySelected: !paymentOption.monthlySelected } : paymentOption)
+    selectYearly () {
+      const element = document.getElementById('year')
+      element.classList.toggle('selected')
     },
-    paySelectYearly (id) {
-      // this.paymentOptions = this.paymentOptions.filter((paymentOption) => paymentOption.id === id)
-      this.paymentOptions = this.paymentOptions.map((paymentOption) => paymentOption.id === id ? { ...paymentOption, yearlySelected: !paymentOption.yearlySelected } : paymentOption)
+    hideButton1 () {
+      const x = document.getElementById('hideButton1')
+      if (x.style.display === 'none') {
+        x.style.display = 'block'
+      } else {
+        x.style.display = 'none'
+      }
     },
-    hideButton () {
-      const x = document.getElementById('hideButton')
+    hideButton2 () {
+      const x = document.getElementById('hideButton2')
       if (x.style.display === 'none') {
         x.style.display = 'block'
       } else {
         x.style.display = 'none'
       }
     }
-  },
-  created () {
-    this.paymentOptions = [
-      {
-        id: 1,
-        name: 'Comprehensive',
-        weekly: '$4.99',
-        monthly: '$40.99',
-        yearly: '$400.99',
-        weeklySelected: false,
-        monthlySelected: false,
-        yearlySelected: false
-      },
-      {
-        id: 2,
-        name: 'Mechanical',
-        weekly: '$2.99',
-        monthly: '$20.99',
-        yearly: '$200.99',
-        weeklySelected: false,
-        monthlySelected: false,
-        yearlySelected: false
-      }
-    ]
   }
 }
 </script>
@@ -204,7 +218,7 @@ form {
 }
 
 .d {
-  line-height: 1rem;
+  line-height: 2rem;
 }
 
 .center {
@@ -212,6 +226,23 @@ form {
   margin-left: auto;
   margin-right: auto;
   width: 85%;
+}
+
+.card.payment {
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 0px;
+  cursor: pointer;
+}
+
+.selected {
+  border: 5px solid #0076BE;
+}
+
+.card.payment h4 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 </style>
